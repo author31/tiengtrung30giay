@@ -1,0 +1,9 @@
+query Articles($id: ID!) {
+  blog(id: $id) {
+    Title,
+    Content,
+    Cover{
+      url
+    }
+  }
+}

@@ -28,15 +28,26 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    '@nuxtjs/tailwindcss'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/apollo',
+    'vue-social-sharing/nuxt'
   ],
+
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-  }
+  },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://tiengtrung30s-cms.herokuapp.com/graphql',
+      }
+    }
+  },
 }

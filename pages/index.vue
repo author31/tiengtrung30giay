@@ -1,6 +1,6 @@
 <template>
     <div>
-      <Header :isScrolled=isScrolled></Header>
+      <Header :isScrolled=isScrolled class="max-h-screen max-w-screen"></Header>
       <Introduction :isScrolled=isScrolled></Introduction>
       <Thumbnail :isScrolled=isScrolled></Thumbnail>
     </div>

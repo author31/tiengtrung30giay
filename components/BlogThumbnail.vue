@@ -1,8 +1,9 @@
 <template>
   <div class="block">
       <div class="flex justify-center">
-            <div class="mt-0 w-64 bg-blue-400 p-2 
-                        sm:w-24 rounded-extra" :class="{scrolling: isScrolled}">
+            <div class="mt-0 w-64 bg-blue-400 p-2 rounded-extra
+                        md:h-10 md:mt-12 
+                        sm:w-30 sm:py-64" :class="{scrolling: isScrolled}">
              <p class="text-center">Bài đăng</p>
             </div>
       </div>
@@ -10,8 +11,9 @@
       <div class="flex justify-center">
           <div class ="grid grid-cols-4 gap-8
                          xl:grid-cols-3 xl:gap-4 mt-8 
-                         sm:grid-cols-2 gap-1 
-                         xs:grid-cols-1">
+                         md:grid-cols-3 md:gap-4 mt-4
+                         sm:grid-cols-2 sm:gap-8
+                         xs:grid-cols-1 xs:gap-1">
             <blog-post v-for="p in blogs" :key="p.id" :post="p.Title" :id="p.id"></blog-post>
             
           </div>

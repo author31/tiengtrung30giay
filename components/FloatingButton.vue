@@ -1,16 +1,16 @@
 <template>
   <div v-if="isScrolled" :class="{appear: isScrolled}" class="block" >
-      <ShareNetwork
-        class="social sm:w-6 lg:w-8 pt-0"
-        network="facebook"
-        :url= "fpath"
-        :title ="blogTitle"><img class="social sm:w-6 lg:w-8"  src="~/assets/logo/facebook-sharing.svg" alt="" width="30px" height="30px"></ShareNetwork>
-      
-      <ShareNetwork
-        class="social sm:w-6 lg:w-8 mt-12"
-        network="email"
-        :url= "fpath"
-        :title ="blogTitle"><img class="social sm:w-6 lg:w-8" src="~/assets/logo/email.svg" alt="" width="30px" height="30px"></ShareNetwork>
+    <ShareNetwork
+    class="social sm:w-6 lg:w-8 pt-0"
+    network="facebook"
+    :url= "fpath"
+    :title ="blogTitle"><img class="social sm:w-6 lg:w-8"  src="~/assets/logo/facebook-sharing.svg" alt="" width="30px" height="30px"></ShareNetwork>
+    
+    <ShareNetwork
+    class="social sm:w-6 lg:w-8 mt-12"
+    network="email"
+    :url= "fpath"
+    :title ="blogTitle"><img class="social sm:w-6 lg:w-8" src="~/assets/logo/email.svg" alt="" width="30px" height="30px"></ShareNetwork>
     
     <ShareNetwork
         class="social sm:w-6 lg:w-8 mt-24"

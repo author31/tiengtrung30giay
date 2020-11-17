@@ -2,7 +2,8 @@
   <div>
     <Navbar class="threshold" :title="blog.Title"></Navbar>
     <FloatingButton :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.Title"></FloatingButton>
-    <div class="px-32 py-10" v-html="blog.Content"></div>
+    <div class="px-32 py-10 
+                sm:py-5 sm:px-2" v-html="blog.Content"></div>
     
     
   </div>

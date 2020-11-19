@@ -1,19 +1,25 @@
 <template>
-    <div class="bg-blue-400 h-32">
-        <div class="flex justify-items-start">
+    <div class="bg-blue-400 w-screen h-32 grid grid-cols-12
+                sm:grid-cols-6">
+        <div class="col-span-2 p-2
+            sm:col-span-1 sm:mt-8 sm:p-2">
             <nuxt-link to ="/">
-                <img class="mx-4 py-2 sm:w-12 transform sm:translate-y-4" src="~/assets/logo/30s.svg" alt="" width="100px"  height="100px">
+                <img class="" src="~/assets/logo/30s.svg" alt="" width="100px"  height="100px">
             </nuxt-link>
         </div>
-        
-        <div class="flex justify-end space-x-4 mx-16 transform -translate-y-16 sm:-translate-y-12 sm:mx-6" >
-          <img class="mt-2 sm:w-4 md:w-6 lg:w-8" src="~/assets/logo/instagram.svg" alt="" width="30px" height="30px">
-          <img class="mt-2 sm:w-4 md:w-6 lg:w-8" src="~/assets/logo/facebook.svg" alt="" width="30px" height="30px">
-          <img class="mt-2 sm:w-4 md:w-6 lg:w-8" src="~/assets/logo/email.svg" alt="" width="30px" height="30px">
+
+        <div class="col-span-8 flex justify-center mt-6
+                    sm:col-span-4"><p class="text-center w-1/2">{{title}}</p></div>
+
+        <div class="col-span-1 flex space-x-4 mt-4 text-4xl
+                    sm:col-span-1 sm:-ml-10 sm:pt-8 sm:text-2xl">
+
+          <i class="fab fa-instagram text-orange-700 
+                    "></i>
+          <i class="fab fa-facebook-square text-blue-800 "></i>
+          <i class="far fa-paper-plane text-indigo-700 "></i>
         </div>
-        <div class="flex justify-center -my-32 text-xl 
-                    sm:text-xs sm:-my-20 sm:-mx-14
-                    xs:-mt-12"><p class="text-center w-1/2">{{title}}</p></div>
+        
     </div>
 </template>
 

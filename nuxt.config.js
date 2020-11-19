@@ -36,7 +36,10 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/apollo',
-    'vue-social-sharing/nuxt'
+    'vue-social-sharing/nuxt',
+  ],
+  css: [
+    '@fortawesome/fontawesome-free/css/all.css'
   ],
 
 

@@ -1,10 +1,16 @@
 <template>
   <div>
-    <Navbar class="threshold" :title="blog.Title"></Navbar>
-    <FloatingButton :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.Title"></FloatingButton>
-    <div class="px-32 py-10 
-                sm:py-5 sm:px-2" v-html="blog.Content"></div>
-    
+    <Navbar class="threshold sm:text-xs w-screen" :title="blog.Title"></Navbar>
+    <div class="grid grid-cols-12
+                sm:grid sm:grid-rows-3">
+      
+      <div class="col-start-2 col-span-10 pt-2
+                  sm:row-start-1 row-span-3" v-html="blog.Content"></div>
+
+      <FloatingButton class="col-start-1 col-end-3 px-4 
+                            sm:row-ends-3 sm:w-48 sm:-pt-10" v-if="blog.Title" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.Title">aaaaa</FloatingButton> 
+    </div>
+                        
     
   </div>
 </template>
@@ -32,12 +38,23 @@ export default {
   methods:{
     shrink(e){
         var target = document.querySelector(".threshold")
-        var scrollPostion = target.getBoundingClientRect().top
-        if(window.scrollY > scrollPostion){
+        var scrollPosition = target.getBoundingClientRect().top
+        if(window.scrollY > scrollPosition){
           return this.isScrolled = true
         }
         return this.isScrolled = false
-      }
+      },
+    async grabContent(){
+      await this.$apollo.query({
+        query: blog,
+        prefetch: true,
+        variables: {
+          id: this.$route.params.id
+        }
+      }).then(resp =>{
+        this.blog = resp.data.blog
+      })
+    }
   },
   data(){
     return{
@@ -45,17 +62,12 @@ export default {
       blog: ""
     }
   },
+  created(){
+    this.grabContent()
+  },
   mounted(){
     document.addEventListener("scroll", this.shrink)
-    this.$apollo.query({
-      query: blog,
-      prefetch: true,
-      variables: {
-        id: this.$route.params.id
-      }
-    }).then(resp =>{
-      this.blog = resp.data.blog
-    })
+   
   },  
   destroyed(){
     document.removeEventListener("scroll", this.shrink)
@@ -79,4 +91,5 @@ p{
   padding-bottom: 5px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 </style>

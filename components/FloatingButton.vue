@@ -1,25 +1,23 @@
 <template>
-  <div v-if="isScrolled" :class="{appear: isScrolled}" class="block" >
+  <div v-if="isScrolled" :class="[isScrolled? 'appear' : 'social']" class="block" >
     <ShareNetwork
-    class="social sm:w-6 lg:w-8 pt-0"
-    network="facebook"
-    :url= "fpath"
-    :title ="blogTitle"><img class="social sm:w-6 lg:w-8"  src="~/assets/logo/facebook-sharing.svg" alt="" width="30px" height="30px"></ShareNetwork>
+        class=" sm:w-6 lg:w-8 pt-0"
+        network="facebook"
+        :url= "fpath"
+        :title ="blogTitle"><i class="fab fa-facebook-square text-blue-800"></i></ShareNetwork>
     
     <ShareNetwork
-    class="social sm:w-6 lg:w-8 mt-12"
-    network="email"
-    :url= "fpath"
-    :title ="blogTitle"><img class="social sm:w-6 lg:w-8" src="~/assets/logo/email.svg" alt="" width="30px" height="30px"></ShareNetwork>
+        class=" sm:w-6 lg:w-8 mt-12"
+        network="twitter"
+        :url= "fpath"
+        :title ="blogTitle"><i class="fab fa-twitter-square text-blue-500"></i></ShareNetwork>
     
     <ShareNetwork
-        class="social sm:w-6 lg:w-8 mt-24"
+        class=" sm:w-6 lg:w-8 mt-24"
         network="pinterest"
         :url ="fpath"
-        :title ="blogTitle"><img class="social sm:w-6 lg:w-8" src="~/assets/logo/pinterest.svg" alt="" width="30px" height="30px"></ShareNetwork>
-      
-
-  </div>
+        :title ="blogTitle"><i class="fab fa-pinterest-square text-red-600"></i></ShareNetwork>
+    </div>
 </template>
 
 <script>
@@ -45,23 +43,38 @@ export default {
 }
 </script>
 
-<style>
-.social{
-    position: fixed;
+<style scoped>
+
+.fab{
+    font-size:40px;
 }
 
-.appear{
-    padding-left: 10px;
-    animation-name: f-in;
-    animation-duration: 0.5s;
-}
+@media (min-width: 1279px), (min-width: 1023px){
+    .fab{
+        display: block;
+        font-size: 40px;
+    }
 
-@keyframes f-in {
-    from {opacity: 0.5;}
-    to {opacity: 1;}
-}
-.social:hover{
-    cursor: pointer;
-}
+    .social{
+        visibility: hidden;
+    }
 
+    .appear{
+        visibility: visible;
+        position: fixed;
+        padding-left: 10px;
+        animation-name: f-in;
+        animation-duration: 0.5s;
+    }
+
+    @keyframes f-in {
+        from {opacity: 0.5;}
+        to {opacity: 1;}
+    }
+
+    .social:hover{
+        cursor: pointer;
+    }
+
+}
 </style>

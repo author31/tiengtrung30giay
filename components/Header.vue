@@ -36,7 +36,7 @@ export default {
     props: ["isScrolled", "disable"],
     data(){
       return{
-        email: ""
+        email: "",
       }
     },
     methods:{
@@ -48,11 +48,14 @@ export default {
           }
         }).then(() => this.email = "")
       },
+    },
+    mounted(){
+
     }
 }
 </script>
 
-<style>
+<style scoped>
 
 .e-h{
   top: 0px;
@@ -78,6 +81,8 @@ input:focus{
   height: 6rem;
   transition: all 0.3s; 
 }
+
+
 
 @media (max-width: 639px) { 
   .e-h{

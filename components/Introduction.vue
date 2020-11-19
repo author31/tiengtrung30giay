@@ -3,15 +3,17 @@
       <div class="flex justify-center mt-8">
           <div class="bg-blue-400 w-48 text-center rounded-extra 
                         xl:text-xl xl:p-2
-                        lg:text-2xl lg:w-56
+                        lg:text-base lg:w-56
                         sm:text-xs">
               <p class="p-2">Lời giới thiệu</p>
           </div>
       </div>
       <div class="flex justify-center mt-8 sm:px-2">
           <div class="bg-blue-400 e-w text-center rounded-extra 
-                        xl:text-xl xl:p-2 sm:text-xs
-                        lg:text-2xl">
+                        xl:text-xl xl:p-2 
+                        lg:text-base
+                        sm:text-xs
+                        ">
               <p class="p-4">Chúng mình là du học sinh đang học tập và sinh tại Đài Loan. Mục đích của blog này là muốn chia sẻ những kiến thức mà chúng mình góp nhặt được trong quá trình học tiếng Trung và những điều thú vị bên Đài Loan</p>
           </div>
       </div> 
@@ -53,7 +55,7 @@ export default {
 
 }
 
-@media (max-width: 767px), (max-width: 639px), (max-width: 280px) {
+@media (max-width: 1023px), (max-width: 767px), (max-width: 639px), (max-width: 280px) {
     .here{
         visibility: hidden;
     }

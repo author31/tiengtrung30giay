@@ -9,7 +9,8 @@
         </div>
 
         <div class="col-span-8 flex justify-center mt-6
-                    sm:col-span-4"><p class="text-center text-xl w-1/2">{{title}}</p></div>
+                    sm:col-span-4"><p class="text-center text-xl w-1/2 
+                                            sm:text-base sm:w-40">{{title}}</p></div>
 
         <div class="col-span-1 flex space-x-3 mt-4 text-4xl
                     sm:col-span-1 sm:-ml-10 sm:pt-8 sm:text-2xl">

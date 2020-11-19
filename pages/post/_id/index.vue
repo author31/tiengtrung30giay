@@ -23,12 +23,7 @@ import gql from 'graphql-tag'
 export default {
   apollo:{
     blog: {
-      query: gql`query Articles($id: ID!) {
-                blog(id: $id) {
-                  Title,
-                  Content
-                }
-              }`,
+      query: blog,
       variables(){
         return{
           id: this.$route.params.id

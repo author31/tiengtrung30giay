@@ -8,7 +8,7 @@
                   sm:row-start-1 row-span-3" v-html="blog.Content"></div>
 
       <FloatingButton class="col-start-1 col-end-3 px-4 
-                            sm:row-ends-3 sm:w-48 sm:p-8" v-if="blog.Title" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.Title">aaaaa</FloatingButton> 
+                            sm:row-ends-3 sm:w-48 sm:p-8" v-if="blog.Title" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.Title"></FloatingButton> 
     </div>
                         
     
@@ -21,15 +21,33 @@ import Navbar from '../../../components/Navbar'
 import blog from '../../../apollo/queries/blog'
 import gql from 'graphql-tag'
 export default {
-  head:{
-    title: blog.Title,
-    meta:[
-    {
-      hid: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
-      name: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
-      content: 'Đây là trang web tiếng Trung chuyên về chủ đề đời sống'
+  apollo:{
+    blog: {
+      query: gql`query Articles($id: ID!) {
+                blog(id: $id) {
+                  Title,
+                  Content
+                }
+              }`,
+      variables(){
+        return{
+          id: this.$route.params.id
+        }
     }
-  ]
+    },
+    
+  },
+  head(){
+    return{
+      title: this.blog.Title,
+      meta:[
+        {
+          hid: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
+          name: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
+          content: 'Đây là trang web tiếng Trung chuyên về chủ đề đời sống'
+        }
+      ]
+    }
   },
   components:{
     Navbar,
@@ -44,26 +62,13 @@ export default {
         }
         return this.isScrolled = false
       },
-    async grabContent(){
-      await this.$apollo.query({
-        query: blog,
-        prefetch: true,
-        variables: {
-          id: this.$route.params.id
-        }
-      }).then(resp =>{
-        this.blog = resp.data.blog
-      })
-    }
+    
   },
   data(){
     return{
       isScrolled: false,
       blog: ""
     }
-  },
-  created(){
-    this.grabContent()
   },
   mounted(){
     document.addEventListener("scroll", this.shrink)

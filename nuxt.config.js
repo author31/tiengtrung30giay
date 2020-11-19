@@ -32,19 +32,36 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    'nuxt-purgecss'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
     '@nuxtjs/apollo',
     'vue-social-sharing/nuxt',
   ],
   css: [
     '@fortawesome/fontawesome-free/css/all.css'
   ],
+  purgeCSS: {
+      enabled: ({ isDev, isClient }) => (!isDev && isClient), // or `false` when in dev/debug mode
+      paths: [
+        'components/**/*.vue',
+        'layouts/**/*.vue',
+        'pages/**/*.vue',
+        'plugins/**/*.js'
+      ],
+      styleExtensions: ['.css'],
+      whitelist: ['body', 'html', 'nuxt-progress'],
+      extractors: [
+        {
+          extractor: content => content.match(/[A-z0-9-:\\/]+/g) || [],
+          extensions: ['html', 'vue', 'js']
+        }
+      ]
+  },
 
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

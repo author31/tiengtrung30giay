@@ -8,7 +8,7 @@
                   sm:row-start-1 row-span-3" v-html="blog.Content"></div>
 
       <FloatingButton class="col-start-1 col-end-3 px-4 
-                            sm:row-ends-3 sm:w-48 sm:-pt-10" v-if="blog.Title" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.Title">aaaaa</FloatingButton> 
+                            sm:row-ends-3 sm:w-48 sm:p-8" v-if="blog.Title" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.Title">aaaaa</FloatingButton> 
     </div>
                         
     

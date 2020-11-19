@@ -3,12 +3,12 @@
     <div class="block xs:-mt-4">
         <img class="mx-4 py-2  sm:w-12 
                     xs:my-4" :class="{onScroll: isScrolled, enter: !isScrolled}"  src="~/assets/logo/30s.svg" alt="" width="100px"  height="100px">
-        <div class="flex justify-end space-x-4 mx-16 contact 
-                     sm:mx-2  sm:mt-6
+        <div class="flex justify-end space-x-4 mx-16 contact text-3xl -mt-2
+                     sm:mx-2 sm:mt-6
                      xs:mt-0 " :class="{stickLogo: isScrolled, enter: !isScrolled}" >
-          <a href="https://www.instagram.com/tiengtrung30giay/"><img class="mt-2 sm:w-6 lg:w-8" src="~/assets/logo/instagram.svg" alt="" width="30px" height="30px"></a>
-          <a href="https://www.facebook.com/tiengtrung30giay"><img class="mt-2 sm:w-6 lg:w-8"  src="~/assets/logo/facebook.svg" alt="" width="30px" height="30px"></a>
-          <a href="mailto:tiengtrung30s@gmail.com"><img class="mt-2 sm:w-6 lg:w-8" src="~/assets/logo/email.svg" alt="" width="30px" height="30px"></a>
+          <a href="https://www.instagram.com/tiengtrung30giay/"><i class="fab fa-instagram text-orange-700"></i></a>
+          <a href="https://www.facebook.com/tiengtrung30giay"><i class="fab fa-facebook-square text-blue-800"></i></a>
+          <a href="mailto:tiengtrung30s@gmail.com"><i class="far fa-paper-plane text-indigo-700 "></i></a>
         </div>
     </div>
     

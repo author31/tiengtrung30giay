@@ -14,8 +14,7 @@
         <div class="col-span-1 flex space-x-4 mt-4 text-4xl
                     sm:col-span-1 sm:-ml-10 sm:pt-8 sm:text-2xl">
 
-          <i class="fab fa-instagram text-orange-700 
-                    "></i>
+          <i class="fab fa-instagram text-orange-700"></i>
           <i class="fab fa-facebook-square text-blue-800 "></i>
           <i class="far fa-paper-plane text-indigo-700 "></i>
         </div>

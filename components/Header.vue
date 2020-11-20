@@ -28,7 +28,7 @@
     <div class="col-start-5 col-span-3 flex justify-self-end
                 lg:col-start-4 lg:col-span-3
                 md:col-start-4 md:col-span-3 md:mt-6
-                sm:col-start-4 sm:mt-20 sm:w-24"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
+                sm:col-start-4 sm:w-24"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
         <img class="transform scale-x-180" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
     </div>
   </div>

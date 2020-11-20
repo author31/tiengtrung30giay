@@ -70,7 +70,6 @@ export default {
 }
 
 input::-webkit-input-placeholder{
-  font-family: "Rokkitt";
   font-size: 1rem;
 }
 

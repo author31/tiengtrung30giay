@@ -22,7 +22,7 @@
       <button class="sml px-2 py-1 mt-2 rounded-extra 
                       xl:w-24 xl:text-xl
                       md:w-20 md:h-8 md:text-xs
-                      sm:w-16 sm:text-xs text-black submit" @click = "sendEmail">Xác nhận</button>
+                      sm:w-20 sm:px-1 sm:py-0 sm:text-xs text-black submit" @click = "sendEmail">Xác nhận</button>
       
     </div>
     <div class="col-start-5 col-span-3 flex justify-self-end

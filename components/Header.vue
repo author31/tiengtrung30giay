@@ -1,29 +1,35 @@
 <template>
-  <div class="header bg-blue-400 w-full e-h rounded-b-extra" :class="{onScroll : isScrolled}" >
-    <div class="block xs:-mt-4">
-        <img class="mx-4 py-2  sm:w-12 
-                    xs:my-4" :class="{onScroll: isScrolled, enter: !isScrolled}"  src="~/assets/logo/30s.svg" alt="" width="100px"  height="100px">
-        <div class="flex justify-end space-x-4 mx-16 contact text-3xl -mt-4
-                     sm:mx-2 sm:mt-6 sm:text-base
-                     xs:mt-0 " :class="{stickLogo: isScrolled, enter: !isScrolled}" >
+  <div class="header bg-blue-400 w-full e-h rounded-b-extra grid grid-cols-6" :class="{onScroll : isScrolled}" >
+    <div class="col-span-2 ml-10 mt-2
+                md:col-span-1
+                sm:col-start-1 sm:w-16 sm:ml-5">
+      <img class="" :class="{onScroll: isScrolled, enter: !isScrolled}"  src="~/assets/logo/30s.svg" alt="" width="100px"  height="100px">
+    </div>
+    <div class="col-start-6 col-span-2 text-3xl ml-16 mt-4 space-x-4 flex justify-end mr-10
+                xl:col-start-5 xl:col-span-3 
+                lg:col-start-4 lg:col-span-3 
+                md:col-start-3 md:col-span-4 
+                sm:col-start-2 sm:col-span-5 sm:mr-4 sm:text-xl" :class="{stickLogo: isScrolled, enter: !isScrolled}" >
           <a href="https://www.instagram.com/tiengtrung30giay/"><i class="fab fa-instagram text-orange-700"></i></a>
           <a href="https://www.facebook.com/tiengtrung30giay"><i class="fab fa-facebook-square text-blue-800"></i></a>
           <a href="mailto:tiengtrung30s@gmail.com"><i class="far fa-paper-plane text-indigo-700 "></i></a>
-        </div>
     </div>
-    
-    <div :class="{fadeOnScroll: isScrolled & true, enter: !isScrolled}" class="mx-4 -my-4 ">
-      <label for="email"> <p class=" sm:text-base">Tôi muốn học tiếng Trung mỗi ngày</p> </label><br/>
-      <input type="text" id="fname" name="email" class="p-2 w-64 rounded-extra sm:w-48  sm:p-1" v-model="email" placeholder="Nhập vào email của bạn....">
-      <button class="sml px-2 py-1 mt-2 rounded-extra
-                      xl:w-24
-                      md:w-20 md:h-8 text-xs text-black submit" @click = "sendEmail">Xác nhận</button>
+    <div class="col-span-2 ml-10 mt-6
+                lg:col-span-3
+                sm:col-start-1 sm:ml-5" :class="{fadeOnScroll: isScrolled & true, enter: !isScrolled}">
+      <label for="email"> <p class=" sm:text-xs">Tôi muốn học tiếng Trung mỗi ngày</p> </label><br/>
+      <input type="text" id="fname" name="email" class="p-2 w-64 rounded-extra sm:w-48 sm:p-1 sm:text-xs" v-model="email" placeholder="Nhập vào email của bạn....">
+      <button class="sml px-2 py-1 mt-2 rounded-extra 
+                      xl:w-24 xl:text-xl
+                      md:w-20 md:h-8 md:text-xs
+                      sm:w-16 sm:text-xs text-black submit" @click = "sendEmail">Xác nhận</button>
       
     </div>
-    <div :class="{fadeOnScroll: isScrolled, enter: !isScrolled}" class="flex justify-end mx-4 -my-2">
-        <img class="transform scale-x-180 -translate-y-20 
-                    md:w-48 md:mt-12
-                    sm:w-32 sm:-mx-2 sm:mt-10" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
+    <div class="col-start-5 col-span-3 flex justify-self-end
+                lg:col-start-4 lg:col-span-3
+                md:col-start-4 md:col-span-3 md:mt-6
+                sm:col-start-4 sm:mt-20 sm:w-24"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
+        <img class="transform scale-x-180" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
     </div>
   </div>
 </template>
@@ -63,10 +69,6 @@ export default {
   transition: all 0.4s;
 }
 
-.flip{
-    transform: rotateY(180deg) translateY(-4rem);
-}
-
 input::-webkit-input-placeholder{
   font-family: "Rokkitt";
   font-size: 1rem;
@@ -83,7 +85,6 @@ input:focus{
 }
 
 
-
 @media (max-width: 639px) { 
   .e-h{
     height: 17rem;
@@ -93,7 +94,7 @@ input:focus{
   }
 
   .stickLogo{
-    margin-top: 2px;
+    margin-top: 10px;
   }
   .sml{
     display:block;
@@ -122,7 +123,7 @@ img.onScroll{
 }
 
 .fadeOnScroll{
-  visibility: hidden;
+  display: none;
 }
 
 .enter{

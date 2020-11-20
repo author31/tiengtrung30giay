@@ -3,7 +3,8 @@
       <div class="flex justify-center ">
             <div class="mt-0 w-64 bg-blue-400 p-2 rounded-extra
                         md:h-10 md:w-32 
-                        sm:w-30" :class="{scrolling: isScrolled}">
+                        sm:w-24 sm:pt-4
+                        xs:w-16" :class="{scrolling: isScrolled}">
              <p class="text-center sm:-mt-2">Bài đăng</p>
             </div>
       </div>
@@ -59,7 +60,7 @@ export default {
 
 @media (max-width: 639px) {
     .scrolling p{
-        font-size: 1.3rem
+        font-size: 1.2rem;
     }
     .scrolling{
         position: fixed;

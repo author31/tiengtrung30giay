@@ -3,8 +3,8 @@
     <div class="block xs:-mt-4">
         <img class="mx-4 py-2  sm:w-12 
                     xs:my-4" :class="{onScroll: isScrolled, enter: !isScrolled}"  src="~/assets/logo/30s.svg" alt="" width="100px"  height="100px">
-        <div class="flex justify-end space-x-4 mx-16 contact text-3xl -mt-2
-                     sm:mx-2 sm:mt-6
+        <div class="flex justify-end space-x-4 mx-16 contact text-3xl -mt-4
+                     sm:mx-2 sm:mt-6 sm:text-base
                      xs:mt-0 " :class="{stickLogo: isScrolled, enter: !isScrolled}" >
           <a href="https://www.instagram.com/tiengtrung30giay/"><i class="fab fa-instagram text-orange-700"></i></a>
           <a href="https://www.facebook.com/tiengtrung30giay"><i class="fab fa-facebook-square text-blue-800"></i></a>
@@ -23,7 +23,7 @@
     <div :class="{fadeOnScroll: isScrolled, enter: !isScrolled}" class="flex justify-end mx-4 -my-2">
         <img class="transform scale-x-180 -translate-y-20 
                     md:w-48 md:mt-12
-                    sm:w-32 sm:-mx-2 sm:my-16 sm:mt-12" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
+                    sm:w-32 sm:-mx-2 sm:mt-10" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
     </div>
   </div>
 </template>

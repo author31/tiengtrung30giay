@@ -2,7 +2,7 @@
   <nuxt-link :to="'/post/' + id">
     <div class="bg-teal-200 w-64 h-64 p-2 mb-10 rounded-extra
                   xl:w-56
-                  sm:w-40 sm:text-xs sm:h-40
+                  sm:w-32 sm:text-xs sm:h-40
                   xs:w-32 xs:h-48 post">
         <p class="text-center p-2">{{post}}</p>
     </div>

@@ -12,7 +12,7 @@
           <div class ="grid grid-cols-4 gap-8
                          xl:grid-cols-3 xl:gap-4 mt-8 
                          md:grid-cols-3 md:gap-4 mt-8  
-                         sm:grid-cols-2 sm:gap-8
+                         sm:grid-cols-2 sm:gap-4
                          xs:grid-cols-1 xs:gap-1">
             <blog-post v-for="p in blogs" :key="p.id" :post="p.Title" :id="p.id"></blog-post>
             

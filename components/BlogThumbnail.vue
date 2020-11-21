@@ -2,7 +2,7 @@
   <div class="block">
       <div class="flex justify-center ">
             <div class="mt-0 w-64 bg-blue-400 p-2 rounded-extra
-                        md:h-10 md:w-32 
+                        md:h-10 md:w-48
                         sm:w-24 sm:pt-4
                         xs:w-16" :class="{scrolling: isScrolled}">
              <p class="text-center sm:-mt-2">Bài đăng</p>

@@ -20,16 +20,16 @@
       <label for="email"> <p class=" sm:text-xs">Tôi muốn học tiếng Trung mỗi ngày</p> </label><br/>
       <input type="text" id="fname" name="email" class="p-2 w-64 rounded-extra sm:w-48 sm:p-1 sm:text-xs" v-model="email" placeholder="Nhập vào email của bạn....">
       <button class="sml px-2 py-1 mt-2 rounded-extra 
-                      xl:w-24 xl:text-xl
+                      xl:w-20 xl:text-base
                       md:w-20 md:h-8 md:text-xs
                       sm:w-20 sm:px-1 sm:py-0 sm:text-xs text-black submit" @click = "sendEmail">Xác nhận</button>
       
     </div>
-    <div class="col-start-5 col-span-3 flex justify-self-end
-                lg:col-start-4 lg:col-span-3
-                md:col-start-4 md:col-span-3 md:mt-6
-                sm:col-start-4 sm:mt-24 sm:w-24"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
-        <img class="transform scale-x-180 forios" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
+    <div class="col-start-6 col-span-2
+                lg:col-start-5 lg:col-span-3 
+                md:col-start-5 md:w-48 md:mt-6
+                sm:col-start-5 sm:mt-16"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
+        <img class="transform scale-x-180" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
     </div>
   </div>
 </template>
@@ -81,12 +81,6 @@ input:focus{
   position: fixed;
   height: 6rem;
   transition: all 0.3s; 
-}
-
-@supports (-webkit-touch-callout: none) {
-  .forios{
-    transform: translateY(-18rem);
-  } 
 }
 
 @media (max-width: 639px) { 

@@ -16,19 +16,23 @@
     </div>
     <div class="col-span-2 ml-10 mt-6
                 lg:col-span-3
-                sm:col-start-1 sm:ml-5" :class="{fadeOnScroll: isScrolled & true, enter: !isScrolled}">
+                sm:col-start-1 sm:ml-5
+                xs:col-start-1 xs:ml-2" :class="{fadeOnScroll: isScrolled & true, enter: !isScrolled}">
       <label for="email"> <p class=" sm:text-xs">Tôi muốn học tiếng Trung mỗi ngày</p> </label><br/>
-      <input type="text" id="fname" name="email" class="p-2 w-64 rounded-extra sm:w-48 sm:p-1 sm:text-xs" v-model="email" placeholder="Nhập vào email của bạn....">
+      <input type="text" id="fname" name="email" class="p-2 w-64 rounded-extra 
+                                                        sm:w-48 sm:p-1 sm:text-xs
+                                                        xs:w-32" v-model="email" placeholder="Nhập vào email của bạn....">
       <button class="sml px-2 py-1 mt-2 rounded-extra 
                       xl:w-20 xl:text-base
                       md:w-20 md:h-8 md:text-xs
-                      sm:w-20 sm:px-1 sm:py-0 sm:text-xs text-black submit" @click = "sendEmail">Xác nhận</button>
+                      sm:w-20 sm:px-1 sm:py-0 sm:text-xs
+                      xs:w-16 xs:text-xs text-black submit" @click = "sendEmail">Xác nhận</button>
       
     </div>
     <div class="col-start-6 col-span-2
                 lg:col-start-5 lg:col-span-3 
                 md:col-start-5 md:w-48 md:mt-6
-                sm:col-start-5 sm:mt-16 sm:mr-6"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
+                sm:col-start-5 sm:w-5/6 sm:mt-24"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
         <img class="transform scale-x-180" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
     </div>
   </div>
@@ -107,6 +111,10 @@ input:focus{
   img.onScroll{
     width: 60px !important; 
     height: 60px !important;
+  }
+
+  input::-webkit-input-placeholder{
+    font-size: 0.6rem;
   }
 }
 

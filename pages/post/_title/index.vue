@@ -18,20 +18,16 @@
 <script>
 import FloatingButton from '../../../components/FloatingButton'
 import Navbar from '../../../components/Navbar'
-import blog from '../../../apollo/queries/blog'
-import gql from 'graphql-tag'
 export default {
-  apollo:{
-    blog: {
-      query: blog,
-      variables(){
-        return{
-          id: this.$route.params.id
+  async asyncData({params, redirect}){
+        const bls = await fetch("https://tiengtrung30s-cms.herokuapp.com/blogs").then(res => res.json())
+        const filterBlog = bls.find(
+            el => {return el ? el.Title.toLowerCase().split(' ').join('-') === params.title : ''}
+        )
+        return {
+            blog: filterBlog
         }
-    }
     },
-    
-  },
   head(){
     return{
       title: this.blog.Title,

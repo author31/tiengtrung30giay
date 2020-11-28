@@ -1,11 +1,18 @@
 <template>
-  <nuxt-link :to="'/post/' + id">
-    <div class="bg-teal-200 w-64 h-64 p-2 mb-10 rounded-extra
+  <nuxt-link :to="`/post/${post.toLowerCase().split(' ').join('-')}`">
+    <div class="w-64 h-70 p-2 mb-10 rounded-extra text-center
+                  border-2 border-black hover:shadow-2xl
                   xl:w-56
-                  md:w-40
-                  sm:w-32 sm:text-xs sm:h-40
-                  xs:w-32 xs:h-48 post">
-        <p class="text-center p-2">{{post}}</p>
+                  md:w-48
+                  sm:w-36 sm:h-56
+                  xs:w-32 xs:h-48">
+        <div class="w-32 mx-auto
+                    md:w-20
+                    sm:w-10"> 
+          <img class="" :src="url">
+        </div>
+        <p class="font-bold p-2 sm:text-xs sm:font-medium">{{post}}</p>
+        <p class="sm:text-xs">{{previewContent}}</p>
     </div>
   </nuxt-link>
 </template>
@@ -13,21 +20,34 @@
 <script>
 export default {
     name: "BlogPost",
-    props: ["post", "id"],
+    props: ["post", "url", "content"],
+    data(){
+      return{
+        previewContent: ""
+      }
+    },
+    methods:{
+      shortenString(html){
+        var parser = new DOMParser()
+        var htmlDoc = parser.parseFromString(html, 'text/html')
+        this.previewContent = htmlDoc.getElementsByTagName("p")[0].textContent.slice(0, 50) + " ..."
+        
+      }
+    },
+    mounted(){
+      this.shortenString(this.content)
+    }
 }
 </script>
 
-<style>
+<style scoped>
 a:hover {
     text-decoration: none;
     color: black;
 }
 
-
-.post:hover{
-    box-shadow: 10px 5px 2px grey;
-    transform: scale(1.07);
-    transition: all 0.3s ease-in;
+.postHeight{
+  height: 18rem;
 }
 
 

@@ -13,9 +13,9 @@
           <div class ="grid grid-cols-4 gap-8
                          xl:grid-cols-3 xl:gap-4 mt-8 
                          md:grid-cols-3 md:gap-4 mt-8  
-                         sm:grid-cols-2 sm:gap-4
+                         sm:grid-cols-2 sm:gap-2
                          xs:grid-cols-1 xs:gap-1">
-            <blog-post v-for="p in blogs" :key="p.id" :post="p.Title" :id="p.id"></blog-post>
+            <blog-post v-for="b in blogs" :key="b.id" :post="b.Title" :content="b.Content" :url ="b.Cover[0].url"></blog-post>
             
           </div>
       </div>
@@ -40,7 +40,11 @@ export default {
         blogs: gql`query{
             blogs{
                 id,
-                Title
+                Title,
+                Content,
+                Cover{
+                    url
+                }
             }
         }`
     }

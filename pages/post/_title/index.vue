@@ -35,7 +35,7 @@ export default {
         {
           hid: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
           name: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
-          content: 'Đây là trang web tiếng Trung chuyên về chủ đề đời sống'
+          content: this.blog.Content
         }
       ]
     }

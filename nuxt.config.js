@@ -5,11 +5,11 @@ export default {
   target: 'static',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'blog',
+    title: 'Tiếng Trung 30 giây',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả', name: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả', content: '' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

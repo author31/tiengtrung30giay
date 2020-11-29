@@ -17,16 +17,15 @@
 
 <script>
 import FloatingButton from '../../../components/FloatingButton'
+import removeVietnameseTones from '../../../converter/converter'
 import Navbar from '../../../components/Navbar'
 export default {
   async asyncData({params, redirect}){
         const bls = await fetch("https://tiengtrung30s-cms.herokuapp.com/blogs").then(res => res.json())
         const filterBlog = bls.find(
-            el => {return el ? el.Title.toLowerCase().split(' ').join('-') === params.title : ''}
+            el => {return el ? removeVietnameseTones(el.Title).toLowerCase().split(' ').join('-') === params.title : ''}
         )
-        return {
-            blog: filterBlog
-        }
+        return {blog: filterBlog}
     },
   head(){
     return{

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/post/${post.toLowerCase().split(' ').join('-')}`">
+  <nuxt-link :to="`/post/${routes.toLowerCase().split(' ').join('-')}`">
     <div class="w-64 h-70 p-2 mb-10 rounded-extra text-center
                   border-2 border-black hover:shadow-2xl
                   xl:w-56
@@ -18,12 +18,14 @@
 </template>
 
 <script>
+import removeVietnameseTones from '../converter/converter';
 export default {
     name: "BlogPost",
     props: ["post", "url", "content"],
     data(){
       return{
-        previewContent: ""
+        previewContent: "",
+        routes: ""
       }
     },
     methods:{
@@ -36,6 +38,8 @@ export default {
     },
     mounted(){
       this.shortenString(this.content)
+      this.routes = removeVietnameseTones(this.post)
+      console.log(removeVietnameseTones(this.post))
     }
 }
 </script>

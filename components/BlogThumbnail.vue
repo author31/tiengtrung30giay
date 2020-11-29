@@ -38,8 +38,9 @@ export default {
     },
     apollo:{
         blogs: gql`query{
-            blogs{
+            blogs(sort: "published_at:DESC"){
                 id,
+                published_at,
                 Title,
                 Content,
                 Cover{
@@ -47,7 +48,7 @@ export default {
                 }
             }
         }`
-    }
+    },
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/post/${routes.toLowerCase().split(' ').join('-')}`">
+  <nuxt-link :to="`/post/${routes}`">
     <div class="w-64 h-70 p-2 mb-10 rounded-extra text-center
                   border-2 border-black hover:shadow-2xl
                   xl:w-56

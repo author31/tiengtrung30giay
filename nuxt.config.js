@@ -1,11 +1,11 @@
 import axios from 'axios'
+import removeVietnameseTones from './converter/converter'
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'Tiếng Trung 30 giây',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -31,7 +31,8 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     '@nuxtjs/tailwindcss',
-    'nuxt-purgecss'
+    'nuxt-purgecss',
+    '@nuxtjs/google-analytics'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -39,7 +40,30 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     '@nuxtjs/apollo',
     'vue-social-sharing/nuxt',
+    '@nuxtjs/sitemap'
   ],
+  sitemap: [
+    {
+      path: '/sitemap-posts',
+      cacheTime: 1000 * 60 * 15,
+      routes: () =>{
+        post = axios.get('https://tiengtrung30s-cms.herokuapp.com/blogs');
+        return post.data.map(p => `/post/${removeVietnameseTones(p.Title)}`)
+      },
+  
+    },
+    {
+      path: '/sitemap-main',
+      cacheTime: 1000 * 60 * 15,
+      routes: [
+        '/'
+      ]
+    }
+  ],
+  googleAnalytics: {
+    id: 'G-G0FBQZ5436'
+  },
+
   css: [
     '@fortawesome/fontawesome-free/css/all.css'
   ],

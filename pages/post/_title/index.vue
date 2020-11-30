@@ -23,7 +23,7 @@ export default {
   async asyncData({params, redirect}){
         const bls = await fetch("https://tiengtrung30s-cms.herokuapp.com/blogs").then(res => res.json())
         const filterBlog = bls.find(
-            el => {return el ? removeVietnameseTones(el.Title).toLowerCase().split(' ').join('-') === params.title : ''}
+            el => {return el ? removeVietnameseTones(el.Title) === params.title : ''}
         )
         return {blog: filterBlog}
     },

@@ -24,5 +24,5 @@ export default function removeVietnameseTones(str) {
     // Remove punctuations
     // Bỏ dấu câu, kí tự đặc biệt
     str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
-    return str;
+    return str.toLowerCase().split(' ').join('-');
 }

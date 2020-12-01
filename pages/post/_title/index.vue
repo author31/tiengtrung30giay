@@ -22,8 +22,8 @@ import removeVietnameseTones from '../../../converter/converter'
 import Navbar from '../../../components/Navbar'
 export default {
   async asyncData({params, redirect}){
-        const bls = await axios.get("https://tiengtrung30s-cms.herokuapp.com/blogs").then(res => res.json())
-        const filterBlog = bls.find(
+        const bls = await axios.get("https://tiengtrung30s-cms.herokuapp.com/blogs")
+        const filterBlog = bls.data.find(
             el => {return el ? removeVietnameseTones(el.Title) === params.title : ''}
         )
         return {blog: filterBlog}

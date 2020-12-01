@@ -44,6 +44,7 @@ export default {
   ],
   sitemap: [
     {
+      hostname:'https://tiengtrung30s.com/',
       path: '/sitemap-posts',
       cacheTime: 1000 * 60 * 15,
       routes: () =>{
@@ -53,6 +54,7 @@ export default {
   
     },
     {
+      hostname:'https://tiengtrung30s.com/',
       path: '/sitemap-main',
       cacheTime: 1000 * 60 * 15,
       routes: [

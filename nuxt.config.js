@@ -48,7 +48,7 @@ export default {
       path: '/sitemap-posts',
       cacheTime: 1000 * 60 * 15,
       routes: () =>{
-        post = axios.get('https://tiengtrung30s-cms.herokuapp.com/blogs');
+        var post = axios.get('https://tiengtrung30s-cms.herokuapp.com/blogs');
         return post.data.map(p => `/post/${removeVietnameseTones(p.Title)}`)
       },
   

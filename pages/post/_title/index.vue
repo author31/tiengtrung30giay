@@ -40,7 +40,7 @@ export default {
 
         { name: 'twitter:title', content: this.blog.Title},
         { name: 'twitter:description', content: this.blog.Content},
-        { name: 'twitter:image', content: '~/assets/logo/30s.svg'},
+        { name: 'twitter:image', content: this.blog.Cover[0].url},
         
         { property: 'og:title', content: this.blog.Title },
         { property: 'og:description', content: this.blog.Content },

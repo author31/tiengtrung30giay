@@ -14,7 +14,7 @@
                 sm:col-start-2 sm:col-span-5 sm:mr-4 sm:text-xl" :class="{stickLogo: isScrolled, enter: !isScrolled}" >
           <a href="https://www.instagram.com/tiengtrung30giay/"><i class="fab fa-instagram text-orange-700"></i></a>
           <a href="https://www.facebook.com/tiengtrung30giay"><i class="fab fa-facebook-square text-blue-800"></i></a>
-          <a href="mailto:tiengtrung30s@gmail.com"><i class="far fa-paper-plane text-indigo-700 "></i></a>
+          <nuxt-link :to="`/contact-us`"><i class="far fa-paper-plane text-indigo-700 "></i></nuxt-link> 
     </div>
     <!-- Email -->
     <div class="col-span-2 ml-10 mt-6

@@ -32,11 +32,20 @@ export default {
     return{
       title: this.blog.Title,
       meta:[
-        {
-          hid: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
-          name: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
-          content: this.blog.Content
-        }
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { 'http-equiv': 'X-UA-Compatible', content:'ie=edge' },
+        
+        { name: 'description', hid: 'description', content: 'content'},
+
+        { name: 'twitter:title', content: this.blog.Title},
+        { name: 'twitter:description', content: this.blog.Content},
+        { name: 'twitter:image', content: '~/assets/logo/30s.svg'},
+        
+        { property: 'og:title', content: this.blog.Title },
+        { property: 'og:description', content: this.blog.Content },
+        { property: 'og:site_name', content: this.blog.Title },
+        { property: 'og:locale', content: 'VN' }
       ]
     }
   },

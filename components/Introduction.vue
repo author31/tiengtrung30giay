@@ -18,7 +18,7 @@
                         lg:text-base
                         sm:text-xs
                         ">
-              <p class="p-4">Chúng mình là du học sinh đang học tập và sinh sống tại Đài Loan. Mục đích của blog này là muốn chia sẻ những kiến thức mà chúng mình góp nhặt được trong quá trình học tiếng Trung và những điều thú vị bên Đài Loan</p>
+              <p class="p-4">{{brief}}</p>
           </div>
       </div> 
       <!-- Arror -->
@@ -34,6 +34,11 @@ export default {
   components: { Popup },
     name: "Introduction",
     props: ["isScrolled"],
+    data(){
+        return {
+            brief: 'Chúng mình là du học sinh đang học tập và sinh sống tại Đài Loan. Mục đích của blog này là muốn chia sẻ những kiến thức mà chúng mình góp nhặt được trong quá trình học tiếng Trung và những điều thú vị bên Đài Loan'
+        }
+    }
 }
 </script>
 

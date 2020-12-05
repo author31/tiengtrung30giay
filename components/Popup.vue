@@ -31,6 +31,9 @@ export default {
         this.$nuxt.$on('showPopUp', () =>{
             this.showModal = true
         })
+    },
+    beforeDestroy(){
+        this.$nuxt.$off('showPopUp')
     }
 }
 
@@ -38,4 +41,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

@@ -14,15 +14,27 @@ import Thumbnail from '../components/BlogThumbnail'
 import Popup from '../components/Popup'
 import Footer from '../components/Footer.vue'
 export default {
-  head:{
-    title: "Tiếng Trung 30 giây",
-    meta:[
-      {
-        hid: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
-        name: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
-        content: 'Đây là trang web tiếng Trung chuyên về chủ đề đời sống'
-      }
-    ]
+  head() {
+    return{
+      title: this.title,
+      meta:[
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { 'http-equiv': 'X-UA-Compatible', content:'ie=edge' },
+        
+        { name: 'description', hid: 'description', content: 'content'},
+
+        { name: 'twitter:title', content: this.title},
+        { name: 'twitter:description', content: this.description},
+        { name: 'twitter:image', content: '~/assets/logo/30s.svg'},
+        
+        { property: 'og:title', content: this.title },
+        { property: 'og:description', content: this.description },
+        { property: 'og:site_name', content: this.title },
+        { property: 'og:locale', content: 'VN' }
+
+      ]
+    }
   },
   components: {
     Header,
@@ -44,7 +56,10 @@ export default {
 
   data(){
     return{
-      isScrolled: false
+      isScrolled: false,
+      title: 'Tiếng Trung 30 giây',
+      description: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
+      content: 'Chúng mình là du học sinh đang học tập và sinh sống tại Đài Loan. Mục đích của blog này là muốn chia sẻ những kiến thức mà chúng mình góp nhặt được trong quá trình học tiếng Trung và những điều thú vị bên Đài Loan'
     }
   },
 

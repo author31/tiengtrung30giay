@@ -2,7 +2,7 @@
     <div class="bg-blue-400 w-screen h-32 grid grid-cols-12
                 sm:grid-cols-6">
         <div class="col-span-2 ml-10
-            sm:col-span-1 sm:mt-8 sm:p-2">
+            sm:col-span-1 sm:mt-8 sm:w-20">
             <nuxt-link to ="/">
                 <img class="" src="~/assets/logo/30s.svg" alt="" width="100px"  height="100px">
             </nuxt-link>
@@ -15,7 +15,7 @@
         </div>
 
         <div class="col-span-1 flex space-x-3 mt-4 text-4xl
-                    sm:col-span-1 sm:-mr-10 sm:pt-8 sm:text-2xl">
+                    sm:col-span-1 sm:pt-8 sm:text-2xl sm:-ml-12">
           <a href="https://www.instagram.com/tiengtrung30giay/"><i class="fab fa-instagram text-orange-700"></i></a>
           <a href="https://www.facebook.com/tiengtrung30giay"><i class="fab fa-facebook-square text-blue-800"></i></a>
          <nuxt-link :to="`/contact-us`"><i class="far fa-paper-plane text-indigo-700 "></i></nuxt-link> 

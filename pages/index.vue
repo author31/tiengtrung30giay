@@ -3,6 +3,7 @@
       <Header :isScrolled=isScrolled class="max-h-screen max-w-screen"></Header>
       <Introduction :isScrolled=isScrolled></Introduction>
       <Thumbnail :isScrolled=isScrolled></Thumbnail>
+      <Footer></Footer>
     </div>
 </template>
 
@@ -10,6 +11,8 @@
 import Header from '../components/Header'
 import Introduction from '../components/Introduction'
 import Thumbnail from '../components/BlogThumbnail'
+import Popup from '../components/Popup'
+import Footer from '../components/Footer.vue'
 export default {
   head:{
     title: "Tiếng Trung 30 giây",
@@ -25,6 +28,8 @@ export default {
     Header,
     Introduction,
     Thumbnail,
+    Popup,
+    Footer
   },
   methods: {
       shrink(e){

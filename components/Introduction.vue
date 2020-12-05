@@ -1,5 +1,8 @@
 <template>
   <div class="block" :class="{scroll : isScrolled, enter: !isScrolled}">
+      <!-- Popup -->
+      <popup></popup>
+      <!-- Introduction banner -->
       <div class="flex justify-center mt-8">
           <div class="bg-blue-400 w-48 text-center rounded-extra 
                         xl:text-xl xl:p-2
@@ -8,6 +11,7 @@
               <p class="p-2">Lời giới thiệu</p>
           </div>
       </div>
+      <!-- Introduction brief -->
       <div class="flex justify-center mt-8 sm:px-2">
           <div class="bg-blue-400 e-w text-center rounded-extra 
                         xl:text-xl xl:p-2 
@@ -17,6 +21,7 @@
               <p class="p-4">Chúng mình là du học sinh đang học tập và sinh sống tại Đài Loan. Mục đích của blog này là muốn chia sẻ những kiến thức mà chúng mình góp nhặt được trong quá trình học tiếng Trung và những điều thú vị bên Đài Loan</p>
           </div>
       </div> 
+      <!-- Arror -->
       <div class="flex justify-center mt-3 mb-2 here">
           <img src="~/assets/logo/arrow.png" alt="">
       </div>
@@ -24,7 +29,9 @@
 </template>
 
 <script>
+import Popup from './Popup.vue'
 export default {
+  components: { Popup },
     name: "Introduction",
     props: ["isScrolled"],
 }

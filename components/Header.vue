@@ -1,10 +1,12 @@
 <template>
   <div class="header bg-blue-400 w-full e-h rounded-b-extra grid grid-cols-6" :class="{onScroll : isScrolled}" >
+    <!-- Logo -->
     <div class="col-span-2 ml-10 mt-2
                 md:col-span-1
                 sm:col-start-1 sm:w-16 sm:ml-5">
       <img class="" :class="{onScroll: isScrolled, enter: !isScrolled}"  src="~/assets/logo/30s.svg" alt="" width="100px"  height="100px">
     </div>
+    <!-- Social media -->
     <div class="col-start-6 col-span-2 text-3xl ml-16 mt-4 space-x-4 flex justify-end mr-10
                 xl:col-start-5 xl:col-span-3 
                 lg:col-start-4 lg:col-span-3 
@@ -14,6 +16,7 @@
           <a href="https://www.facebook.com/tiengtrung30giay"><i class="fab fa-facebook-square text-blue-800"></i></a>
           <a href="mailto:tiengtrung30s@gmail.com"><i class="far fa-paper-plane text-indigo-700 "></i></a>
     </div>
+    <!-- Email -->
     <div class="col-span-2 ml-10 mt-6
                 lg:col-span-3
                 sm:col-start-1 sm:ml-5
@@ -26,16 +29,23 @@
                       xl:w-20 xl:text-base
                       md:w-20 md:h-8 md:text-xs
                       sm:w-20 sm:px-1 sm:py-0 sm:text-xs
-                      xs:w-16 xs:text-xs text-black submit" @click = "sendEmail">Xác nhận</button>
+                      xs:w-16 xs:text-xs text-black submit
+                      bg-white  
+                      hover:bg-yellow-200" @click = "sendEmail">Xác nhận</button>
+      <p class="text-red-900 font-bold" v-if="error">! Nhập đúng định dạng email</p>
       
     </div>
+
+    <!-- Reading cartoon -->
     <div class="col-start-6 col-span-2
                 lg:col-start-5 lg:col-span-3 
                 md:col-start-5 md:w-48 md:mt-6
                 sm:col-start-5 sm:w-5/6 sm:mt-24"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
         <img class="transform scale-x-180" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
     </div>
+    
   </div>
+  
 </template>
 
 <script>
@@ -47,6 +57,8 @@ export default {
     data(){
       return{
         email: "",
+        showModal: false,
+        error: false
       }
     },
     methods:{
@@ -56,7 +68,11 @@ export default {
           variables:{
             email: this.email
           }
-        }).then(() => this.email = "")
+        }).then(() => {
+          this.$nuxt.$emit('showPopUp')
+          this.email = "";
+          this.error = false
+        }).catch(err => this.error = true)
       },
     },
     mounted(){
@@ -145,19 +161,6 @@ img.onScroll{
   outline: none;
 }
 
-.submit:hover{
-  background-color: wheat;
-}
-
-.submit:active{
-  background-color:black;
-  color: white;
-}
-
-.submit{
-  background-color: white;
-  color: black;
-}
 
 
 </style>

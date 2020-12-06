@@ -6,10 +6,12 @@ export default {
   target: 'static',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
+    title: 'Tiếng Trung 30 giây',
+    titleTemplate: '%s | Học tiếng Trung qua giao tiếp',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả', name: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả', content: '' }
+      { hid: 'description', name: 'description', content: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -63,7 +65,7 @@ export default {
     }
   ],
   googleAnalytics: {
-    id: 'G-G0FBQZ5436'
+    id: 'UA-184182241-1'
   },
 
   css: [

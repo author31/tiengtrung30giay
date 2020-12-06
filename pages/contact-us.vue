@@ -1,10 +1,13 @@
 <template>
-  <div>
+  <div class="relative min-h-screen">
       <Navbar></Navbar>
       <div class="flex justify-center my-4">
-          <h1 class="font-bold text-xl">{{title}}</h1></div>
-      <div class="flex justify-center
-                sm:my-4">
+          <h1 class="font-bold text-xl">{{title}}</h1>
+      </div>
+
+      <div class="flex justify-center pb-32
+                sm:my-4 ">
+        
           <div class="bg-indigo-300 w-120 grid grid-cols-5 rounded-extra p-6
                         sm:w-72">
 

@@ -45,7 +45,7 @@ export default {
   sitemap: [
     {
       hostname:'https://tiengtrung30s.com/',
-      path: '/sitemap-posts',
+      path: '/sitemap-posts.xml',
       cacheTime: 1000 * 60 * 15,
       routes: async () =>{
         const post= await axios.get('https://tiengtrung30s-cms.herokuapp.com/blogs')

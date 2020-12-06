@@ -8,7 +8,7 @@
                         xl:text-xl xl:p-2
                         lg:text-base lg:w-56
                         sm:text-xs">
-              <p class="p-2">Lời giới thiệu</p>
+              <h1 class="p-2 font-bold text-base">Lời giới thiệu</h1>
           </div>
       </div>
       <!-- Introduction brief -->

@@ -1,11 +1,12 @@
 <template>
   <div class="block">
       <div class="flex justify-center ">
-            <div class="mt-0 w-64 bg-blue-400 p-2 rounded-extra
+            <div class="mt-0 w-64 bg-blue-400 rounded-extra
                         md:h-10 md:w-48
                         sm:w-24 sm:pt-4
                         xs:w-16" :class="{scrolling: isScrolled}">
-             <p class="text-center sm:-mt-2">Bài đăng</p>
+             <h2 class="text-center font-semibold text-xl mt-4  
+                         sm:mt-2 ">Bài đăng</h2>
             </div>
       </div>
 
@@ -55,11 +56,11 @@ export default {
 <style >
 .scrolling{
     position: fixed;
-    top: -5px;
+    top: 5px;
 }
 
-.scrolling p{
-    font-size: 2.5rem;
+.scrolling h2{
+    font-size: 2rem;
     
 }
 

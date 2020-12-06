@@ -48,6 +48,7 @@ export default {
     data(){
         return {
             title: "Liên hệ với chúng tôi",
+            description: 'Liên hệ với chúng tôi',
             name: "",
             email: "",
             message: "",
@@ -63,7 +64,7 @@ export default {
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
                 { 'http-equiv': 'X-UA-Compatible', content:'ie=edge' },
                 
-                { name: 'description', hid: 'description', content: 'content'},
+                { name: 'description', hid: 'description', content: this.description},
 
                 { name: 'twitter:title', content: this.title},
                 { name: 'twitter:description', content: this.description},

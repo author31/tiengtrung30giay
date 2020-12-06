@@ -22,7 +22,7 @@ export default {
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { 'http-equiv': 'X-UA-Compatible', content:'ie=edge' },
         
-        { name: 'description', hid: 'description', content: 'content'},
+        { name: 'description', hid: 'description', content: this.description},
 
         { name: 'twitter:title', content: this.title},
         { name: 'twitter:description', content: this.description},
@@ -58,8 +58,7 @@ export default {
     return{
       isScrolled: false,
       title: 'Tiếng Trung 30 giây',
-      description: 'Chúng mình chia sẻ cách học tiếng Trung hiệu quả',
-      content: 'Chúng mình là du học sinh đang học tập và sinh sống tại Đài Loan. Mục đích của blog này là muốn chia sẻ những kiến thức mà chúng mình góp nhặt được trong quá trình học tiếng Trung và những điều thú vị bên Đài Loan'
+      description: 'Chúng mình là du học sinh đang học tập và sinh sống tại Đài Loan. Mục đích của blog này là muốn chia sẻ những kiến thức mà chúng mình góp nhặt được trong quá trình học tiếng Trung và những điều thú vị bên Đài Loan',
     }
   },
 

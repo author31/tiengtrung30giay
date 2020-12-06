@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="min-h-screen relative">
       <Header :isScrolled=isScrolled class="max-h-screen max-w-screen"></Header>
       <Introduction :isScrolled=isScrolled></Introduction>
       <Thumbnail :isScrolled=isScrolled></Thumbnail>

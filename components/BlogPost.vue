@@ -32,7 +32,7 @@ export default {
       shortenString(html){
         var parser = new DOMParser()
         var htmlDoc = parser.parseFromString(html, 'text/html')
-        this.previewContent = htmlDoc.getElementsByTagName("p")[0].textContent.slice(0, 50) + " ..."
+        this.previewContent = htmlDoc.getElementsByTagName("p")[0].textContent.slice(0, 40) + " ..."
         
       }
     },

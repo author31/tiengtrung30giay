@@ -1,16 +1,31 @@
 <template>
-  <div>
-    <Navbar class="threshold sm:text-xs w-screen" :title="blog.Title"></Navbar>
-    <div class="grid grid-cols-12
-                sm:grid sm:grid-rows-3">
-      
-      <div class="col-start-2 col-span-10 pt-2
-                  sm:row-start-1 row-span-3" v-html="blog.Content"></div>
+  <div class="block min-h-screen relative">
+    <!-- Navbar -->
+    <Navbar class="threshold sm:text-xs"></Navbar>
+    
+    <div class="grid grid-cols-12 pb-32">
+      <!-- Publish date -->
+      <div class="col-start-3 col-span-8 mt-4
+                sm:col-start-2 sm:col-span-9">
 
-      <FloatingButton class="col-start-1 col-end-3 px-4 
-                            sm:row-ends-3 sm:w-48 sm:p-8" v-if="blog.Title" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.Title"></FloatingButton> 
+        <i class="far fa-clock text-base "> Bài đăng ngày: {{formattedDate}}</i>
+
+        <div class="w-80 h-1/2 bg-black my-2
+                    sm:w-56"></div>
+
+        <h1>{{blog.Title}}</h1>
+
+      </div>
+
+      <!-- Content -->
+      <div class="col-start-3 col-span-8 
+                  sm:col-start-2 sm:col-span-9 " v-html="blog.Content"></div>
+
+      <!-- Social Button -->
+      <FloatingButton v-if="blog.Title" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.Title"></FloatingButton> 
     </div>
-                        
+    <!-- Footer -->
+    <Footer class="absolute bottom-0"></Footer>
     
   </div>
 </template>
@@ -20,6 +35,7 @@ import axios from 'axios'
 import FloatingButton from '../../../components/FloatingButton'
 import removeVietnameseTones from '../../../converter/converter'
 import Navbar from '../../../components/Navbar'
+import Footer from '../../../components/Footer'
 export default {
   async asyncData({params, redirect}){
         const bls = await axios.get("https://tiengtrung30s-cms.herokuapp.com/blogs")
@@ -67,11 +83,13 @@ export default {
   data(){
     return{
       isScrolled: false,
-      blog: ""
+      blog: "",
+      formattedDate: "",
     }
   },
   mounted(){
     document.addEventListener("scroll", this.shrink)
+    this.formattedDate = this.blog.published_at.substring(0,10).split("-").reverse().join("-")
    
   },  
   destroyed(){

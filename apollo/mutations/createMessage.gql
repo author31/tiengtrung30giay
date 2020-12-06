@@ -1,6 +1,6 @@
 mutation MessageCreate($name: String, $email: String, $message: String){
     createMessage(input: {data: {name: $name, email: $email, message:$message}}){
-        email{
+        message{
             id,
             name,
             email,

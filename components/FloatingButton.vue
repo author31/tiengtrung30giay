@@ -45,11 +45,26 @@ export default {
 
 <style scoped>
 
-.fab{
-    font-size:40px;
+@media (max-width: 759px) {
+    .fab{
+        display: block;
+        font-size:40px;
+    }
+
+    .appear{
+        right: 2%;
+        position: fixed;
+        animation-name: f-in;
+        animation-duration: 0.5s;
+    }
+
+    @keyframes f-in {
+        from {opacity: 0.5;  transform:  translateX(100px);}
+        to {opacity: 1;}
+    }
 }
 
-@media (min-width: 1279px), (min-width: 1023px){
+@media (min-width: 1279px), (min-width: 1023px), (min-width: 767px){
     .fab{
         display: block;
         font-size: 40px;
@@ -68,7 +83,7 @@ export default {
     }
 
     @keyframes f-in {
-        from {opacity: 0.5;}
+        from {opacity: 0.5;  transform:  translateX(-100px);}
         to {opacity: 1;}
     }
 

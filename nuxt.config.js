@@ -92,6 +92,7 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    publicPath: '_nuxt/dist/'
   },
   generate: {
     fallback: '404.html'

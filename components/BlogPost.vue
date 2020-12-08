@@ -39,7 +39,6 @@ export default {
     mounted(){
       this.shortenString(this.content)
       this.routes = removeVietnameseTones(this.post)
-      console.log(removeVietnameseTones(this.post))
     }
 }
 </script>

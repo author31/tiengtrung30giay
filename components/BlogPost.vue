@@ -33,7 +33,6 @@ export default {
         var parser = new DOMParser()
         var htmlDoc = parser.parseFromString(html, 'text/html')
         this.previewContent = htmlDoc.getElementsByTagName("p")[0].textContent.slice(0, 40) + " ..."
-        
       }
     },
     mounted(){

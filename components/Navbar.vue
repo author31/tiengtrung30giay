@@ -1,6 +1,8 @@
 <template>
     <div class="bg-blue-400 w-full h-32 grid grid-cols-12 rounded-b-extra">
         <div class="col-start-3 mt-2
+            lg:col-start-2 lg:w-24
+            md:col-start-2 md:w-24
             sm:col-start-2 sm:mt-8 sm:w-20">
             <nuxt-link to ="/">
                 <img class="" src="~/assets/logo/30s.svg" alt="" width="100px"  height="100px">

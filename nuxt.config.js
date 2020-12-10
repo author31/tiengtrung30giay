@@ -1,6 +1,13 @@
 import axios from 'axios'
 import removeVietnameseTones from './converter/converter'
 
+let dynamicRoutes = async () =>{
+  const bls = await axios.get("https://tiengtrung30s-cms.herokuapp.com/blogs")
+  return new Promise(resolve => {
+    resolve(bls.data.map(blg => `/post/${removeVietnameseTones(blg.Title)}`))
+  })
+}
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -95,7 +102,8 @@ export default {
   build: {
   },
   generate: {
-    fallback: true
+    fallback: true,
+    routes: dynamicRoutes
   },
   apollo: {
     clientConfigs: {

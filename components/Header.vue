@@ -82,7 +82,9 @@ export default {
 </script>
 
 <style scoped>
-
+a{
+  height: 1rem;
+}
 .e-h{
   top: 0px;
   height: 21rem;

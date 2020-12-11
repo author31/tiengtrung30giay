@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/post/${routes}`">
+  <nuxt-link :to="`/${route}/${title_url}`">
     <div class="w-64 h-70 p-2 mb-10 rounded-extra text-center
                   border-2 border-black hover:shadow-2xl
                   xl:w-56
@@ -21,11 +21,11 @@
 import removeVietnameseTones from '../converter/converter';
 export default {
     name: "BlogPost",
-    props: ["post", "url", "content"],
+    props: ["post", "url", "content", "route"],
     data(){
       return{
         previewContent: "",
-        routes: ""
+        title_url: ""
       }
     },
     methods:{
@@ -37,7 +37,7 @@ export default {
     },
     mounted(){
       this.shortenString(this.content)
-      this.routes = removeVietnameseTones(this.post)
+      this.title_url = removeVietnameseTones(this.post)
     }
 }
 </script>

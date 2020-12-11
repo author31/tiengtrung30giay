@@ -1,26 +1,39 @@
 <template>
-  <div class="header bg-blue-400 w-full e-h rounded-b-extra grid grid-cols-6" :class="{onScroll : isScrolled}" >
+  <div class="header bg-blue-400 w-full e-h rounded-b-extra grid grid-cols-12" :class="{onScroll : isScrolled}" >
     <!-- Logo -->
-    <div class="col-span-2 ml-10 mt-2
-                md:col-span-1
-                sm:col-start-1 sm:w-16 sm:ml-5">
+    <div class="col-start-2 col-span-2 mt-2
+                md:col-start-2 md:col-span-2
+                sm:col-start-2 sm:w-16">
       <img class="" :class="{onScroll: isScrolled, enter: !isScrolled}"  src="~/assets/logo/30s.svg" alt="" width="100px"  height="100px">
     </div>
     <!-- Social media -->
-    <div class="col-start-6 col-span-2 text-3xl ml-16 mt-4 space-x-4 flex justify-end mr-10
-                xl:col-start-5 xl:col-span-3 
-                lg:col-start-4 lg:col-span-3 
-                md:col-start-3 md:col-span-4 
-                sm:col-start-2 sm:col-span-5 sm:mr-4 sm:text-xl" :class="{stickLogo: isScrolled, enter: !isScrolled}" >
-          <a href="https://www.instagram.com/tiengtrung30giay/"><i class="fab fa-instagram text-orange-700"></i></a>
-          <a href="https://www.facebook.com/tiengtrung30giay"><i class="fab fa-facebook-square text-blue-800"></i></a>
-          <nuxt-link :to="`/contact-us`"><i class="far fa-paper-plane text-indigo-700 "></i></nuxt-link> 
+    <div class="col-start-11 col-span-2 
+                xl:col-start-11 xl:col-span-3 
+                lg:col-start-10 lg:col-span-4
+                md:col-start-9 md:col-span-4 
+                sm:col-start-9 sm:col-span-4" :class="{stickLogo: isScrolled, enter: !isScrolled}" >
+          <div class="grid grid-rows-3">
+                <div class="row-start-1 flex space-x-3 text-white font-medium mt-2
+                                                                        md:text-sm
+                                                                        sm:mt-6 sm:text-xs">
+                    <nuxt-link to="/post">Bài đăng</nuxt-link>
+                     <nuxt-link to="/tai-lieu">Tài liệu</nuxt-link>
+                </div>
+                <div class="row-start-2 text-4xl space-x-2 -mt-2
+                                        md:text-2xl md:mt-2
+                                        sm:text-2xl">
+                    <a href="https://www.instagram.com/tiengtrung30giay/"><i class="fab fa-instagram text-orange-700"></i></a>
+                    <a href="https://www.facebook.com/tiengtrung30giay"><i class="fab fa-facebook-square text-blue-800"></i></a>
+                    <nuxt-link :to="`/contact-us`"><i class="far fa-paper-plane text-indigo-700 "></i></nuxt-link>
+                </div>
+            </div> 
     </div>
     <!-- Email -->
-    <div class="col-span-2 ml-10 mt-6
-                lg:col-span-3
-                sm:col-start-1 sm:ml-5
-                xs:col-start-1 xs:ml-2" :class="{fadeOnScroll: isScrolled & true, enter: !isScrolled}">
+    <div class="col-start-2 col-span-4
+                lg:col-start-2 lg:col-span-4
+                md:col-start-2 md:col-span-4
+                sm:col-start-2 sm:col-span-4 sm:-mt-6
+                xs:col-start-2 xs:col-span-4 xs:-mt-8" :class="{fadeOnScroll: isScrolled & true, enter: !isScrolled}">
       <label for="email"> <p class=" sm:text-xs">Tôi muốn học tiếng Trung mỗi ngày</p> </label><br/>
       <input type="text" id="fname" name="email" class="p-2 w-64 rounded-extra 
                                                         sm:w-48 sm:p-1 sm:text-xs
@@ -37,10 +50,10 @@
     </div>
 
     <!-- Reading cartoon -->
-    <div class="col-start-6 col-span-2
-                lg:col-start-5 lg:col-span-3 
-                md:col-start-5 md:w-48 md:mt-6
-                sm:col-start-5 sm:w-5/6 sm:mt-24"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
+    <div class="col-start-10 col-span-2 
+                lg:col-start-10 lg:col-span-3 
+                md:col-start-10 md:w-48
+                sm:col-start-10 sm:w-5/6"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
         <img class="transform scale-x-180" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
     </div>
     
@@ -114,7 +127,7 @@ input:focus{
   }
 
   .stickLogo{
-    margin-top: 10px;
+    margin-top: -10px;
   }
   .sml{
     display:block;
@@ -156,7 +169,7 @@ img.onScroll{
 }
 
 .stickLogo{
-  transform: translateY(30px);
+  transform: translateY(5px);
 }
 
 .submit:focus{

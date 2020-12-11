@@ -16,7 +16,7 @@
                                                                         md:text-sm
                                                                         sm:mt-6 sm:text-xs">
                     <nuxt-link to="/post">Bài đăng</nuxt-link>
-                     <nuxt-link to="/resources">Tài liệu</nuxt-link>
+                     <nuxt-link to="/tai-lieu">Tài liệu</nuxt-link>
                 </div>
                 <div class="row-start-2 text-4xl space-x-2 -mt-2
                                         md:text-2xl md:mt-2

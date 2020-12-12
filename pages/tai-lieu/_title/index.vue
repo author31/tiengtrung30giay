@@ -35,9 +35,13 @@
             </div>
 
             <!-- Relate block -->
-            <div class="col-start-10 col-span-2">
-                <h2>Bài đăng liên quan</h2>
-                <div class="bg-white border-4 border-black ">
+            <div class="col-start-10 col-span-2 mt-4
+                        md:col-start-9 md:col-span-3 md:ml-6
+                        sm:col-start-2 sm:col-span-10">
+                <div class="h-1/2 bg-black my-2"></div>
+                <h2 class="font-semibold text-xl">Bài đăng liên quan</h2>
+                <div class="bg-white border-4 border-black 
+                            sm:border-2 ">
                     <div class="font-medium p-3" v-for="r in related" :key=r.id>
                         <nuxt-link :to="r.url">
                             - {{r.Title}}

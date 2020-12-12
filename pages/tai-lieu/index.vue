@@ -2,7 +2,7 @@
   <div class="relative min-h-screen">
       <Navbar></Navbar>
       <h1 class="text-center font-semibold text-3xl my-2
-                            sm:text-base ">Bài đăng</h1>
+                            sm:text-base ">Tài Liệu</h1>
       <div class="flex justify-center pb-40">
         <div class ="grid grid-cols-4 gap-8
                          xl:grid-cols-3 xl:gap-4 mt-8 

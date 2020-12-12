@@ -10,20 +10,20 @@
     <div class="col-start-11 col-span-2 
                 xl:col-start-11 xl:col-span-3 
                 lg:col-start-10 lg:col-span-4
-                md:col-start-9 md:col-span-4 
+                md:col-start-10 md:col-span-4 
                 sm:col-start-9 sm:col-span-4" :class="{stickLogo: isScrolled, enter: !isScrolled}" >
           <div class="grid grid-rows-3">
                 <div class="row-start-1 flex space-x-3 text-white font-medium mt-2
                                                                         md:text-sm
                                                                         sm:mt-6 sm:text-xs">
-                    <nuxt-link to="/post">Bài đăng</nuxt-link>
-                     <nuxt-link to="/tai-lieu">Tài liệu</nuxt-link>
+                    <nuxt-link class="hover:text-black focus:underline focus:text-black" to="/post" >Bài đăng</nuxt-link>
+                    <nuxt-link class="hover:text-black focus:underline focus:text-black" to="/tai-lieu" >Tài liệu</nuxt-link>
                 </div>
                 <div class="row-start-2 text-4xl space-x-2 -mt-2
                                         md:text-2xl md:mt-2
                                         sm:text-2xl">
-                    <a href="https://www.instagram.com/tiengtrung30giay/"><i class="fab fa-instagram text-orange-700"></i></a>
-                    <a href="https://www.facebook.com/tiengtrung30giay"><i class="fab fa-facebook-square text-blue-800"></i></a>
+                    <a href="https://www.instagram.com/tiengtrung30giay/" aria-label="Instagram"><i class="fab fa-instagram text-orange-700"></i></a>
+                    <a href="https://www.facebook.com/tiengtrung30giay" aria-label="Facebook"><i class="fab fa-facebook-square text-blue-800"></i></a>
                     <nuxt-link :to="`/contact-us`"><i class="far fa-paper-plane text-indigo-700 "></i></nuxt-link>
                 </div>
             </div> 
@@ -35,7 +35,7 @@
                 sm:col-start-2 sm:col-span-4 sm:-mt-6
                 xs:col-start-2 xs:col-span-4 xs:-mt-8" :class="{fadeOnScroll: isScrolled & true, enter: !isScrolled}">
       <label for="email"> <p class=" sm:text-xs">Tôi muốn học tiếng Trung mỗi ngày</p> </label><br/>
-      <input type="text" id="fname" name="email" class="p-2 w-64 rounded-extra 
+      <input type="text" id="email" name="email" class="p-2 w-64 rounded-extra 
                                                         sm:w-48 sm:p-1 sm:text-xs
                                                         xs:w-32" v-model="email" placeholder="Nhập vào email của bạn....">
       <button class="sml px-2 py-1 mt-2 rounded-extra 
@@ -51,10 +51,10 @@
 
     <!-- Reading cartoon -->
     <div class="col-start-10 col-span-2 
-                lg:col-start-10 lg:col-span-3 
-                md:col-start-10 md:w-48
-                sm:col-start-10 sm:w-5/6"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
-        <img class="transform scale-x-180" src="~/assets/logo/reading-side.svg" alt="" width="320" height="300">
+                lg:col-start-9 lg:col-span-3 
+                md:col-start-9 md:w-48
+                sm:col-start-9 sm:w-32"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
+        <img class="transform scale-x-180" src="~/assets/logo/reading-side.svg" alt="Reading book" width="320" height="300">
     </div>
     
   </div>
@@ -95,6 +95,7 @@ export default {
 </script>
 
 <style scoped>
+
 a{
   height: 1rem;
 }
@@ -115,42 +116,7 @@ input:focus{
 .onScroll{
   position: fixed;
   height: 6rem;
-  transition: all 0.3s; 
-}
-
-@media (max-width: 639px) { 
-  .e-h{
-    height: 17rem;
-  }
-  .onScroll{
-    height: 6rem;
-  }
-
-  .stickLogo{
-    margin-top: -10px;
-  }
-  .sml{
-    display:block;
-  }
-}
-
-@media (max-width: 300px) {
-  p{
-    font-size: 0.8rem;
-  }
-  
-  img.onScroll{
-    width: 60px !important; 
-    height: 60px !important;
-  }
-
-  input::-webkit-input-placeholder{
-    font-size: 0.6rem;
-  }
-}
-
-.contact{
-  transform: translateY(-5rem);
+  transition: all 0.2s ease-out; 
 }
 
 img.onScroll{
@@ -175,6 +141,39 @@ img.onScroll{
 .submit:focus{
   outline: none;
 }
+
+@media (max-width: 639px) { 
+  .e-h{
+    height: 17rem;
+  }
+  .onScroll{
+    height: 6rem;
+  }
+
+  .stickLogo{
+    transform: translateY(5px);
+  }
+  .sml{
+    display:block;
+  }
+}
+
+@media (max-width: 300px) {
+  p{
+    font-size: 0.8rem;
+  }
+  
+  img.onScroll{
+    width: 60px !important; 
+    height: 60px !important;
+  }
+
+  input::-webkit-input-placeholder{
+    font-size: 0.6rem;
+  }
+}
+
+
 
 
 

@@ -2,9 +2,16 @@ import axios from 'axios'
 import removeVietnameseTones from './converter/converter'
 
 let dynamicRoutes = async () =>{
+  // Blog Route
   const bls = await axios.get("https://tiengtrung30s-cms.herokuapp.com/blogs")
+  var blogRoute = bls.data.map(blg => `/post/${removeVietnameseTones(blg.Title)}`)
+
+  // Resources Route
+  const res = await axios.get("https://tiengtrung30s-cms.herokuapp.com/resources")
+  var resRoute = res.data.map(res => `/tai-lieu/${removeVietnameseTones(res.Name)}`)
+  
   return new Promise(resolve => {
-    resolve(bls.data.map(blg => `/post/${removeVietnameseTones(blg.Title)}`))
+    resolve(blogRoute.concat(resRoute))
   })
 }
 
@@ -65,7 +72,7 @@ export default {
     },
     {
       hostname:'https://tiengtrung30s.com/',
-      path: '/sitemap-main',
+      path: '/sitemap-main.xml',
       cacheTime: 1000 * 60 * 15,
       routes: [
         '/'

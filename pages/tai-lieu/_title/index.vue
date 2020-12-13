@@ -37,7 +37,7 @@
             <!-- Relate block -->
             <div class="col-start-10 col-span-2 mt-4
                         md:col-start-9 md:col-span-3 md:ml-6
-                        sm:col-start-2 sm:col-span-10">
+                        sm:col-start-2 sm:col-span-10 sm:ml-0">
                 <div class="h-1/2 bg-black my-2"></div>
                 <h2 class="font-semibold text-xl">Bài đăng liên quan</h2>
                 <div class="bg-white border-4 border-black 

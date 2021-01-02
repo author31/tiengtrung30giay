@@ -11,7 +11,8 @@
                 xl:col-start-11 xl:col-span-3 
                 lg:col-start-10 lg:col-span-4
                 md:col-start-10 md:col-span-4 
-                sm:col-start-9 sm:col-span-4" :class="{stickLogo: isScrolled, enter: !isScrolled}" >
+                sm:col-start-9 sm:col-span-4
+                xs:col-start-8 xs:col-span-5" :class="{stickLogo: isScrolled, enter: !isScrolled}" >
           <div class="grid grid-rows-3">
                 <div class="row-start-1 flex space-x-3 text-white font-medium mt-2
                                                                         md:text-sm
@@ -34,9 +35,9 @@
                 md:col-start-2 md:col-span-4
                 sm:col-start-2 sm:col-span-4 sm:-mt-6
                 xs:col-start-2 xs:col-span-4 xs:-mt-8" :class="{fadeOnScroll: isScrolled & true, enter: !isScrolled}">
-      <label for="email"> <p class=" sm:text-xs">Tôi muốn học tiếng Trung mỗi ngày</p> </label><br/>
+      <label for="email"> <p class=" sm:text-xs sm:font-semibold">Tôi muốn học tiếng Trung mỗi ngày</p> </label><br/>
       <input type="text" id="email" name="email" class="p-2 w-64 rounded-extra 
-                                                        sm:w-48 sm:p-1 sm:text-xs
+                                                        sm:w-40 sm:p-1 sm:text-xs
                                                         xs:w-32" v-model="email" placeholder="Nhập vào email của bạn....">
       <button class="sml px-2 py-1 mt-2 rounded-extra 
                       xl:w-20 xl:text-base
@@ -53,7 +54,8 @@
     <div class="col-start-10 col-span-2 
                 lg:col-start-9 lg:col-span-3 
                 md:col-start-9 md:w-48
-                sm:col-start-9 sm:w-32"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
+                sm:col-start-8 sm:w-32 sm:ml-2
+                xs:col-start-7 xs:w-32 xs:ml-2"  :class="{fadeOnScroll: isScrolled, enter: !isScrolled}">
         <img class="transform scale-x-180" src="~/assets/logo/reading-side.svg" alt="Reading book" width="320" height="300">
     </div>
     
@@ -172,6 +174,7 @@ img.onScroll{
     font-size: 0.6rem;
   }
 }
+
 
 
 

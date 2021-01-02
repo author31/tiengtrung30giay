@@ -4,21 +4,21 @@
                   border-2 border-black hover:shadow-2xl
                   xl:w-56
                   md:w-48
-                  sm:w-full sm:h-64
-                  xs:w-32 xs:h-48">
+                  sm:w-64 sm:h-64 sm:px-10
+                  xs:w-48 xs:h-48">
         <div class="w-32 mx-auto
                     md:w-20
-                    sm:w-36"> 
+                    sm:w-24
+                    xs:w-12"> 
           <SanityImage :asset-id=url auto="format" />
         </div>
-        <h3 class="">{{title}}</h3>
-        <p class="">{{previewContent}}</p>
+        <h3 class="xs:text-xs">{{title}}</h3>
+        <p class="xs:text-xs">{{previewContent}}</p>
     </div>
   </nuxt-link>
 </template>
 
 <script>
-import removeVietnameseTones from '../converter/converter';
 import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
 export default {
     name: "BlogPost",

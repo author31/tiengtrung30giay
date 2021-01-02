@@ -7,7 +7,8 @@
                         xs:w-16" :class="{scrolling: isScrolled}">
 
                <h2 class="font-semibold text-xl my-2
-                            sm:text-base ">Bài đăng</h2>
+                            sm:text-base
+                            xs:text-xs">Bài đăng</h2>
             </div>
       </div>
 
@@ -58,6 +59,16 @@ export default {
         position: fixed;
         top: 10px;
         
+    }
+}
+
+@media (max-width: 280px) {
+    .scrolling h2{
+        font-size: 0.9rem;
+    }
+    .scrolling{
+        position: fixed;
+        top: 10px;
     }
 }
 </style>

@@ -1,15 +1,17 @@
+import { groq } from '@nuxtjs/sanity'
+import client from "./sanity.js"
 import axios from 'axios'
-import removeVietnameseTones from './converter/converter'
 
 let dynamicRoutes = async () =>{
-  // Blog Route
-  const bls = await axios.get("https://tiengtrung30s-cms.herokuapp.com/blogs")
-  var blogRoute = bls.data.map(blg => `/post/${removeVietnameseTones(blg.Title)}`)
+  const rquery = groq `*[_type == "resources"]`
+  const resources = await client.fetch(rquery)
+  var resRoute = resources.map(res => `/tai-lieu/${(res.slug.current)}`)
 
-  // Resources Route
-  const res = await axios.get("https://tiengtrung30s-cms.herokuapp.com/resources")
-  var resRoute = res.data.map(res => `/tai-lieu/${removeVietnameseTones(res.Name)}`)
-  
+  // Generate related blog by rand
+  const bquery = groq `*[_type == "post"]`
+  const blogs = await client.fetch(bquery)
+  var blogRoute = blogs.map(blg => `/post/${(blg.slug.current)}`)
+
   return new Promise(resolve => {
     resolve(blogRoute.concat(resRoute))
   })
@@ -40,6 +42,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    "@/plugins/sanity-blocks.js",
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -49,7 +52,8 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     'nuxt-purgecss',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/sanity'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -64,10 +68,7 @@ export default {
       hostname:'https://tiengtrung30s.com/',
       path: '/sitemap-posts.xml',
       cacheTime: 1000 * 60 * 15,
-      routes: async () =>{
-        const post= await axios.get('https://tiengtrung30s-cms.herokuapp.com/blogs')
-        return post.data.map(p => `/post/${removeVietnameseTones(p.Title)}`)
-      },
+      routes: dynamicRoutes
   
     },
     {
@@ -79,10 +80,6 @@ export default {
       ]
     }
   ],
-  googleAnalytics: {
-    id: 'UA-184182241-1'
-  },
-
   css: [
     '@fortawesome/fontawesome-free/css/all.css'
   ],
@@ -107,6 +104,12 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+  sanity: {
+    projectId: '7hft69j2'
+  },
+  googleAnalytics: {
+    id: 'UA-184182241-1'
   },
   generate: {
     fallback: true,

@@ -13,16 +13,14 @@
         <div class="w-80 h-1/2 bg-black my-2
                     sm:w-56"></div>
 
-        <h1>{{blog.Title}}</h1>
-
+        <h1>{{blog.title}}</h1>
       </div>
-
       <!-- Content -->
       <div class="col-start-3 col-span-8 
-                  sm:col-start-2 sm:col-span-9 " v-html="blog.Content"></div>
+                  sm:col-start-2 sm:col-span-9 "><block-content :blocks="child" v-for="child in blog.body" :key="child._id" :projectId=projectId :dataset=dataset /></div>
 
       <!-- Social Button -->
-      <FloatingButton v-if="blog.Title" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.Title"></FloatingButton> 
+      <FloatingButton v-if="blog.title" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="blog.title"></FloatingButton> 
     </div>
     <!-- Footer -->
     <Footer class="absolute bottom-0"></Footer>
@@ -31,18 +29,18 @@
 </template>
 
 <script>
-import axios from 'axios'
 import FloatingButton from '../../../components/FloatingButton'
-import removeVietnameseTones from '../../../converter/converter'
+import urlBuilder from '../../../converter/urlBuilder'
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
+import { groq } from '@nuxtjs/sanity'
 export default {
-  async asyncData({params, redirect}){
-        const bls = await axios.get("https://tiengtrung30s-cms.herokuapp.com/blogs")
-        const filterBlog = bls.data.find(
-            el => {return el ? removeVietnameseTones(el.Title) === params.title : ''}
-        )
-        return {blog: filterBlog}
+  async asyncData({$sanity, params}){
+        const query = groq`*[_type == "post" && slug.current == "${params.title}"][0] | order(publishedAt desc)`
+        const blog = await $sanity.fetch(query)
+        const projectId = $sanity.config.projectId
+        const dataset = $sanity.config.dataset
+        return { blog, projectId, dataset }
     },
   head(){
     return{
@@ -56,7 +54,7 @@ export default {
 
         { name: 'twitter:title', content: this.blog.Title},
         { name: 'twitter:description', content: this.blog.Content},
-        { name: 'twitter:image', content: this.blog.Cover[0].url},
+        { name: 'twitter:image', content: urlBuilder(this.blog.mainImage.asset._ref, this.projectId, this.dataset)},
         
         { property: 'og:title', content: this.blog.Title },
         { property: 'og:description', content: this.blog.Content },
@@ -89,7 +87,7 @@ export default {
   },
   mounted(){
     document.addEventListener("scroll", this.shrink)
-    this.formattedDate = this.blog.published_at.substring(0,10).split("-").reverse().join("-")
+    this.formattedDate = this.blog.publishedAt.substring(0,10).split("-").reverse().join("-")
    
   },  
   destroyed(){

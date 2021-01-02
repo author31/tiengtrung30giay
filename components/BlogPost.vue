@@ -1,43 +1,40 @@
 <template>
-  <nuxt-link :to="`/${route}/${title_url}`">
+  <nuxt-link :to="`/${route}/${slug}`">
     <div class="w-64 h-70 p-2 mb-10 rounded-extra text-center
                   border-2 border-black hover:shadow-2xl
                   xl:w-56
                   md:w-48
-                  sm:w-36 sm:h-56
+                  sm:w-full sm:h-64
                   xs:w-32 xs:h-48">
         <div class="w-32 mx-auto
                     md:w-20
-                    sm:w-10"> 
-          <img class="" :src="url">
+                    sm:w-36"> 
+          <SanityImage :asset-id=url auto="format" />
         </div>
-        <p class="font-bold p-2 sm:text-xs sm:font-medium">{{post}}</p>
-        <p class="sm:text-xs">{{previewContent}}</p>
+        <h3 class="">{{title}}</h3>
+        <p class="">{{previewContent}}</p>
     </div>
   </nuxt-link>
 </template>
 
 <script>
 import removeVietnameseTones from '../converter/converter';
+import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
 export default {
     name: "BlogPost",
-    props: ["post", "url", "content", "route"],
+    props: ["title", "url", "content", "route", "slug"],
     data(){
       return{
         previewContent: "",
-        title_url: ""
       }
     },
     methods:{
-      shortenString(html){
-        var parser = new DOMParser()
-        var htmlDoc = parser.parseFromString(html, 'text/html')
-        this.previewContent = htmlDoc.getElementsByTagName("p")[0].textContent.slice(0, 40) + " ..."
+      shortenString(){
+        this.previewContent = this.content[0].children[0].text.slice(0, 40) + " ..."
       }
     },
     mounted(){
-      this.shortenString(this.content)
-      this.title_url = removeVietnameseTones(this.post)
+      this.shortenString()
     }
 }
 </script>

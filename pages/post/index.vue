@@ -9,7 +9,7 @@
                          md:grid-cols-3 md:gap-4 mt-8  
                          sm:grid-cols-2 sm:gap-2
                          xs:grid-cols-1 xs:gap-1">
-              <BlogPost v-for="b in blogs" :key="b.id" :post="b.Title" :content="b.Content" :url ="b.Cover[0].url"></BlogPost>
+              <BlogPost v-for="b in blogs" :key="b._id" :title="b.title" :content="b.body" :url ="b.mainImage.asset._ref" route="post" :slug="b.slug.current"></BlogPost>
         </div>
       </div>
       
@@ -21,21 +21,14 @@
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import BlogPost from '../../components/BlogPost'
-import gql from 'graphql-tag'
+import { groq } from '@nuxtjs/sanity'
+
 export default {
-  apollo:{
-        blogs: gql`query{
-            blogs(sort: "published_at:DESC"){
-                id,
-                published_at,
-                Title,
-                Content,
-                Cover{
-                    url
-                }
-            }
-        }`
-    },
+  async asyncData({$sanity}){
+    const query = groq `*[_type == "post"] | order(publishedAt desc)`
+    const blogs = await $sanity.fetch(query)
+    return { blogs }
+  }
 
 }
 </script>

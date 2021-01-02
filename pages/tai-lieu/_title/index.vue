@@ -9,8 +9,10 @@
             <div class="col-start-3 col-span-2 bg-blue-200 flex justify-center items-center
                         lg:col-start-3 lg:col-span-3
                         sm:col-start-2 sm:col-span-5">
-                <img class="w-32 h-32  
-                            md:w-24 md:h-24" :src="resources.Cover[0].url" alt="" >
+                <div class="w-32 h-32  
+                            md:w-24 md:h-24" alt="">
+                            <SanityImage :asset-id=resources.image.asset._ref auto="format" />
+                </div>
             </div>
 
             <!-- Title -->
@@ -43,8 +45,8 @@
                 <div class="bg-white border-4 border-black 
                             sm:border-2 ">
                     <div class="font-medium p-3" v-for="r in related" :key=r.id>
-                        <nuxt-link :to="r.url">
-                            - {{r.Title}}
+                        <nuxt-link :to="`/post/${r.slug.current}`">
+                            - {{r.title}}
                         </nuxt-link>
                     </div>
                 </div>
@@ -64,13 +66,14 @@
 
             <!-- Content -->
             <div class="col-start-3 col-span-6 pb-24
-                        sm:col-start-2 sm:col-end-11" v-html="resources.Content">
+                        sm:col-start-2 sm:col-end-11">
+                        <block-content :blocks="child" v-for="child in resources.content" :key="child._id" :projectId=projectId :dataset=dataset />
             </div>
 
             
 
             <!-- Social media -->
-            <FloatingButton v-if="resources.Name" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="resources.Name"></FloatingButton> 
+            <FloatingButton v-if="resources.name" :isScrolled ="this.isScrolled" :path ="this.$route.path" :blogTitle ="resources.Name"></FloatingButton> 
             
 
         </div>
@@ -81,29 +84,29 @@
 </template>
 
 <script>
-import axios from 'axios'
-import removeVietnameseTones from '../../../converter/converter'
+import { groq } from '@nuxtjs/sanity'
 import generateRandom from '../../../converter/rand_generator'
 
 export default {
-    async asyncData({params, redirect}){
+    async asyncData({params, $sanity}){
         // Fetch resources
-        const bls = await axios.get("https://tiengtrung30s-cms.herokuapp.com/resources")
-        const filterResources = bls.data.find(
-            el => {return el ? removeVietnameseTones(el.Name) === params.title : ''} )
-        
+        const rquery = groq `*[_type == "resources" && slug.current == "${params.title}"][0] | order(publishedAt desc)`
+        const resources = await $sanity.fetch(rquery)
+
         // Generate related blog by rand
-        const getBlog = await axios.get("https://tiengtrung30s-cms.herokuapp.com/blogs")
-        var sugLinks = []
+        const bquery = groq `*[_type == "post"] | order(publishedAt desc)`
+        const blogs = await $sanity.fetch(bquery)
         
+
         // Generate random indexes
-        var randomIdx = generateRandom(getBlog.data.length, 3)
-        randomIdx.forEach(el => sugLinks.push(getBlog.data[el]))
+        var sugLinks = []
+        var randomIdx = generateRandom(blogs.length, 3)
+        randomIdx.forEach(el => sugLinks.push(blogs[el]))
+        
+        const projectId = $sanity.config.projectId
+        const dataset = $sanity.config.dataset
 
-        // Convert to route 
-        sugLinks.forEach(sug => sug["url"] = `/post/${removeVietnameseTones(sug.Title)}`)
-
-        return {resources: filterResources, related: sugLinks}
+        return {resources, related: sugLinks, projectId, dataset}
     },
 
     data(){

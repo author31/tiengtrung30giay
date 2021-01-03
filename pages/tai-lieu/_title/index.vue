@@ -23,15 +23,15 @@
                 <h1 class="font-semibold text-2xl
                             lg:text-xl
                             md:text-xl
-                            sm:text-sm">{{resources.Name}}</h1>
+                            sm:text-sm">{{resources.name}}</h1>
                 <!-- border-line -->
                 <div class="h-1/2 bg-black my-2"></div>
                 <!-- catergories -->
                 <div class="space-y-2
                             sm:text-xs sm:space-y-0">
-                    <p>Mức độ: <span class="categories">{{resources.Level}}</span></p>
-                    <p>Ứng dụng: <span class="categories">{{resources.Application}}</span></p>
-                    <p>Số lượng từ vựng: <span class="categories">{{resources.Count}}</span></p>  
+                    <p>Mức độ: <span class="categories">{{resources.level}}</span></p>
+                    <p>Ứng dụng: <span class="categories">{{resources.application}}</span></p>
+                    <p>Số lượng từ vựng: <span class="categories">{{resources.wordCount}}</span></p>  
                     <button class="bg-black w-32 hover:bg-blue-400" ><p class="text-white p-2">Tải về</p></button>
                 </div>
             </div>

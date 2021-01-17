@@ -84,14 +84,7 @@ export default {
     methods:{
         async sendMessage(){
             if(this.name != "" && this.email != "" && this.message != ""){
-                this.$apollo.mutate({
-                mutation: createMessage,
-                variables:{
-                    name: this.name,
-                    email: this.email,
-                    message: this.message
-                }
-                }).then(() => {
+                fetch("/.netlify/functions/emailSending.js").then(() => {
                     this.name = "";
                     this.email = "";
                     this.message ="";

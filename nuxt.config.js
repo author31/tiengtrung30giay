@@ -54,7 +54,7 @@ export default {
     'nuxt-purgecss',
     '@nuxtjs/google-analytics',
     '@nuxtjs/sanity',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

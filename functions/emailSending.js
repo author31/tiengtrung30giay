@@ -10,7 +10,9 @@ exports.handler = async (event, context, callback) => {
         templateId: "d-a0a242f61a5d4c53bebc863f22faca32",
         dynamic_template_data: {
             subject: `You have a new message from ${data.email}`,
-            message: data.message
+            message: data.message,
+            name: data.name,
+            email: data.email
         }
         
     }

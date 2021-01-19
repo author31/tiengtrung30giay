@@ -15,8 +15,7 @@ exports.handler = async (event, context, callback) => {
         
     }
     try{
-        await sgMail.send(msg)
-        
+        await sgMail.send(msg).then(res => console.log(res))
         return {
             statusCode: 200,
             body: "Message sent"

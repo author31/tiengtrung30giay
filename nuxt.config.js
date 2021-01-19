@@ -53,7 +53,8 @@ export default {
     '@nuxtjs/tailwindcss',
     'nuxt-purgecss',
     '@nuxtjs/google-analytics',
-    '@nuxtjs/sanity'
+    '@nuxtjs/sanity',
+    '@nuxtjs/dotenv'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

@@ -11,10 +11,12 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@nuxtjs/apollo": "^4.0.1-rc.4",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/sanity": "^0.4.2",
     "@nuxtjs/sitemap": "^2.4.0",
     "@sanity/client": "^2.1.0",
     "@sanity/image-url": "^0.140.19",
+    "@sendgrid/mail": "^7.4.2",
     "bootstrap": "^4.5.2",
     "child_process": "^1.0.2",
     "core-js": "^3.6.5",

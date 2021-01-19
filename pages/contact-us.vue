@@ -84,7 +84,8 @@ export default {
     methods:{
         async sendMessage(){
             if(this.name != "" && this.email != "" && this.message != ""){
-                fetch("/.netlify/functions/emailSending").then(() => {
+                const body = {name: this.name, email: this.email, message: this.message}
+                fetch("/.netlify/functions/emailSending", {method: 'POST', body: JSON.stringify(body)}).then(() => {
                     this.name = "";
                     this.email = "";
                     this.message ="";
